@@ -1,26 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momo <momo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 13:22:41 by dfinn             #+#    #+#             */
-/*   Updated: 2023/11/18 10:59:14 by momo             ###   ########.fr       */
+/*   Created: 2023/11/18 11:00:18 by momo              #+#    #+#             */
+/*   Updated: 2023/11/18 11:05:08 by momo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	free_map(char **map)
 {
-	t_mlx	mlx;
+	int	y;
 
-	if (!check_arg(ac, av))
-		exit(EXIT_FAILURE);
-	mlx.map = parse_map(av[1]);
-	mlx.mlx_ptr = mlx_init();
-	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, get_map_width(mlx.map), get_map_heigth(mlx.map), "so_long");
-	init_map(mlx.map, &mlx);
-	mlx_key_hook(mlx.win_ptr, key_pressed, &mlx);
+	y = 0;
+	while(map[y])
+	{
+		free(map[y]);
+		y++;
+	}
+	free(map);
+}
+
+int	get_map_size(char	**map)
+{
+	int y;
+	
+	y = 0;
+	while (map[y])
+		y++;
+	return (y):
+}
+
+int	get_map_height(char **map)
+{
+	int	size;
+
+	size = get_map_size(map) * SPRITES_SIZE;
+	return (size);
+}
+
+int	get_map_width(char **map)
+{
+	int	size;
+
+	size = ft_strlen(map[0]) * SPRITES_SIZE;
+	return (size);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfinn <dfinn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: momo <momo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 13:23:31 by dfinn             #+#    #+#             */
-/*   Updated: 2023/09/27 22:19:21 by dfinn            ###   ########.fr       */
+/*   Updated: 2023/11/18 17:37:21 by momo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+#define SPRITE_SIZE 32
+#define NB_SPRITES 5
+#define UP 13
+#define DOWN 1
+#define LEFT 0
+#define RIGHT 2
+#define CLOSE 53
 
 typedef struct s_img
 {
